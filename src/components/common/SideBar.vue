@@ -53,128 +53,44 @@ export default {
         },
         {
           icon: "el-icon-lx-cascades",
-          index: "form",
+          index: "documentation",
           title: "文档"
         },
         {
           icon: "el-icon-lx-copy",
-          index: "tab",
-          title: "图标"
+          index: "2",
+          title: "权限测试",
+          subs: [
+            {
+              index: 'page',
+              title: '页面权限'
+            },
+            {
+              index: 'role',
+              title: '角色权限'
+            }
+          ]
         },
-        // {
-        //   icon: "el-icon-lx-calendar",
-        //   index: "3",
-        //   title: "组件",
-        //   subs: [
-        //     {
-        //       index: "tableTree",
-        //       title: "列表拖拽"
-        //     },
-        //     {
-        //       index: "3-2",
-        //       title: "头像上传",
-        //       subs: [
-        //         {
-        //           index: "editor",
-        //           title: "富文本编辑器"
-        //         },
-        //         {
-        //           index: "markdown",
-        //           title: "markdown编辑器"
-        //         }
-        //       ]
-        //     },
-        //     {
-        //       index: "upload",
-        //       title: "小组件"
-        //     }
-        //   ]
-        // },
-        // {
-        //   icon: "el-icon-lx-emoji",
-        //   index: "icon",
-        //   title: "自定义图标"
-        // },
-        // {
-        //   icon: "el-icon-lx-favor",
-        //   index: "charts",
-        //   title: "schart图表"
-        // },
-        // {
-        //   icon: "el-icon-rank",
-        //   index: "6",
-        //   title: "拖拽组件",
-        //   subs: [
-        //     {
-        //       index: "drag",
-        //       title: "拖拽列表"
-        //     },
-        //     {
-        //       index: "dialog",
-        //       title: "拖拽弹框"
-        //     }
-        //   ]
-        // },
-        // {
-        //   icon: "el-icon-lx-warn",
-        //   index: "7",
-        //   title: "错误处理",
-        //   subs: [
-        //     {
-        //       index: "permission",
-        //       title: "权限测试"
-        //     },
-        //     {
-        //       index: "404",
-        //       title: "404页面"
-        //     }
-        //   ]
-        // },
-        // {
-        //   icon: "el-icon-lx-warn",
-        //   index: "8",
-        //   title: "错误处理",
-        //   subs: [
-        //     {
-        //       index: "permission",
-        //       title: "权限测试"
-        //     },
-        //     {
-        //       index: "404",
-        //       title: "404页面"
-        //     }
-        //   ]
-        // },
-        // {
-        //   icon: "el-icon-lx-warn",
-        //   index: "9",
-        //   title: "错误处理",
-        //   subs: [
-        //     {
-        //       index: "permission",
-        //       title: "权限测试"
-        //     },
-        //     {
-        //       index: "404",
-        //       title: "404页面"
-        //     }
-        //   ]
-        // },
-        // {
-        //   icon: "el-icon-lx-warn",
-        //   index: "10",
-        //   title: "错误处理",
-        //   subs: [
-        //     {
-        //       index: "permission",
-        //       title: "权限测试"
-        //     },
-        //     {
-        //       index: "404",
-        //       title: "404页面"
-        //     }
-        //   ]
-        // }
+        {
+          icon: "el-icon-lx-copy",
+          index: '3',
+          title: 'Table',
+          subs: [
+            {
+              index: 'complex-table',
+              title: '综合Table'
+            },
+            {
+              index: 'drag-table',
+              title: '拖拽Table'
+            }
+          ]
+        },
+        {
+          icon: "el-icon-lx-copy",
+          index: 'tab',
+          title: 'Tab',
+        }
       ]
     };
   },
@@ -200,7 +116,7 @@ export default {
 </script>
 <style scoped>
 .sidebar {
-  width: 200px;
+  width: 200px!important;
   height: 100%;
   position: fixed;
   top: 0;
@@ -208,7 +124,9 @@ export default {
   bottom: 0; 
   font-size: 0;
   overflow: hidden;
-  /* z-index: 1001; */
+  -webkit-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  z-index: 1001;
 }
 /* .sidebar {
   position: fixed;

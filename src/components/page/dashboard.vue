@@ -43,10 +43,6 @@ export default {
     };
   },
   created() {
-    // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!");
-    // console.log($);
-    // this.getData();
-    // this.getCompanys();
     console.log(this.$router)
     console.log(
       `%c 后台 %c Detected Vue %cv1.5`,
@@ -61,7 +57,7 @@ export default {
 </script>
 <style scoped>
 .container {
-  margin: 10px 10px 0 10px;
+  padding: 20px;
 }
 .box {
   width: 300px;

@@ -15,28 +15,19 @@ export default {
   margin: 0;
   padding: 0;
 }
-html{
+/* html{
   overflow: hidden;
-}
-#id {
-  height: 100%;
-}
+} */
 @font-face {
   font-family: alibaba;
   src: url('./assets/fonts/AlibabaSans-Medium.otf');
   font-weight: normal;
 }
- /* url('./assets/fonts/AlibabaSans-Black.otf'),
-      url('./assets/fonts/AlibabaSans-Bold.otf'),
-      url('./assets/fonts/AlibabaSans-Heavy.otf'),
-      url('./assets/fonts/AlibabaSans-Medium.otf'),
-      url('./assets/fonts/AlibabaSans-Regular.otf'), */
 #app {
   font-family: alibaba;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
-  width: 100%;
 }
   /* @import "../src/assets/css/main.css"; */
 </style>

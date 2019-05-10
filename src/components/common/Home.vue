@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper ">
     <v-SideBar></v-SideBar>
     <div class="main-container" :style="{marginLeft: boolLeft?'200px':'64px'}">
       <v-Head></v-Head>
@@ -42,15 +42,16 @@ export default {
     min-height: 100%;
     -webkit-transition: margin-left .3s ease-in-out;
     transition: margin-left .3s ease-in-out;
-    /* margin-left: 200px; */
+    margin-left: 200px;
   }
   .app-main {
-    /* min-height: calc(100vh - 50px); */
-    height: 886px;
+    min-height: calc(100vh - 50px);
     width: 100%;
+    padding-top: 50px;
     position: relative;
-    overflow-y: scroll;
-    /* background-color: bisque; */
-    /* background-color: #ddd; */
+    overflow: hidden;
+    /* background-color: #f0f2f5; */
+     /* height: 886px; */
+    /* overflow-y: scroll; */
   }
 </style>

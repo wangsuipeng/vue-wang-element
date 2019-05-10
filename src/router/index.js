@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/dashboard'
     },
     {
       path: '/login',
@@ -17,28 +17,49 @@ export default new Router({
     },
     {
       path: '/',
-      // component: resolve => require(['../components/common/Home.vue'], resolve),
       component: () => import('@/components/common/Home.vue'),
       children:[
         {
           path: '/dashboard',
-          // component: resolve => require(['../components/page/dashboard.vue'], resolve),
-          component: () => import('@/components/page/dashboard.vue')
+          component: () => import('@/views/dashboard/index'),
+          name: 'Dashboard',
+          meta: {title: '首页'}
         },
         {
-          path: '/form',
-          // component: resolve => require(['../components/page/form.vue'], resolve),
-          component: () => import('@/components/page/form.vue')
+          path: '/documentation',
+          component: () => import('@/views/documentation/index'),
+          name: 'documentation',
+          meta: {title: '文档'}
         },
         {
-          path: '/tableTree',
-          // component: resolve => require(['../components/page/tableTree.vue'], resolve)
-          component: () => import('@/components/page/tableTree.vue')
+          path: '/page',
+          component: () => import('@/views/permission/page'),
+          name: 'page',
+          meta: {title: '页面权限'}
+        },
+        {
+          path: '/role',
+          component: () => import('@/views/permission/role'),
+          name: 'role',
+          meta: {title: '角色权限'}
+        },
+        {
+          path: '/complex-table',
+          component: () => import('@/views/table/complex-table'),
+          name: 'complextable',
+          meta: {title: '综合Table'}
+        },
+        {
+          path: '/drag-table',
+          component: () => import('@/views/table/drag-table'),
+          name: '',
+          meta: {title: '拖拽Table'}
         },
         {
           path: '/tab',
-          // component: resolve => require(['../components/page/tab.vue'], resolve),
-          component: () => import('@/components/page/tab.vue')
+          component: () => import('@/views/tab/index'),
+          name: 'Tab',
+          meta: {title: 'Tab'}
         }
       ]
     },
