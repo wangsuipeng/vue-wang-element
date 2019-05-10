@@ -90,6 +90,47 @@ export default {
           icon: "el-icon-lx-copy",
           index: 'tab',
           title: 'Tab',
+        },
+        {
+          icon: "el-icon-lx-copy",
+          index: '4',
+          title: 'Excel',
+          subs:[
+            {
+              index: 'export-excel',
+              title: '导出 Excel'
+            },
+            {
+              index: 'upload-excel',
+              title: '上传 Excel'
+            }
+          ]
+        },
+        {
+          icon: "el-icon-lx-copy",
+          index: '5',
+          title: 'Zip',
+          subs:[
+            {
+              index: 'download',
+              title: 'Export Zip'
+            }
+          ]
+        },
+        {
+          icon: "el-icon-lx-copy",
+          index: '6',
+          title: '组件',
+          subs:[
+            {
+              index: 'tinymce',
+              title: '富文本编辑器'
+            },
+            {
+              index: 'avatar-upload',
+              title: '头像上传'
+            }
+          ]
         }
       ]
     };

@@ -60,6 +60,31 @@ export default new Router({
           component: () => import('@/views/tab/index'),
           name: 'Tab',
           meta: {title: 'Tab'}
+        },
+        {
+          path: '/export-excel',
+          component: () => import('@/views/Excel/export-excel'),
+          meta: {title: '导出 Excel'}
+        },
+        {
+          path: '/upload-excel',
+          component: () => import('@/views/Excel/upload-excel'),
+          meta: {title: '上传 Excel'}
+        },
+        {
+          path: '/download',
+          component: () => import('@/views/Zip/download'),
+          meta: {title: 'Export Zip'}
+        },
+        {
+          path: '/tinymce',
+          component: () => import('@/views/components/tinymce'),
+          meta: {title: '富文本编辑器'}
+        },
+        {
+          path: '/avatar-upload',
+          component: () => import('@/views/components/avatar-upload'),
+          meta: {title: '头像上传'}
         }
       ]
     },
