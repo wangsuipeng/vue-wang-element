@@ -1,5 +1,6 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar"> 
+    <logo :collapse="collapse" />
     <el-menu
       class="sidebar-el-menu"
       :default-active="onRoutes"
@@ -10,11 +11,12 @@
       unique-opened
       router
     >
+      
       <template v-for="item in items">
         <template v-if="item.subs">
           <el-submenu :index="item.index" :key="item.index">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i :class="item.icon"></i>
               <span slot="title">{{ item.title }}</span>
             </template>
             <template v-for="subItem in item.subs">
@@ -30,7 +32,7 @@
         </template> 
         <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
-            <i class="el-icon-location"></i>
+            <i :class="item.icon"></i>
             <span slot="title">{{ item.title }}</span>
           </el-menu-item>
         </template>   
@@ -41,7 +43,9 @@
 <script>
 import bus from "../../assets/js/bus"
 import { generateTitle } from '../../utils/i18n.js'
+import Logo from '../common/Logo.vue'
 export default {
+  components: {Logo},
   data() {
     return {
       collapse: false,
@@ -52,12 +56,12 @@ export default {
           title: "首页"
         },
         {
-          icon: "el-icon-lx-cascades",
+          icon: "el-icon-lx-wendang",
           index: "documentation",
           title: "文档"
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-quanxiankuaizhuang",
           index: "2",
           title: "权限测试",
           subs: [
@@ -72,7 +76,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-biaoge",
           index: '3',
           title: 'Table',
           subs: [
@@ -87,12 +91,12 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-tab",
           index: 'tab',
           title: 'Tab',
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-excel",
           index: '4',
           title: 'Excel',
           subs:[
@@ -107,7 +111,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-zip",
           index: '5',
           title: 'Zip',
           subs:[
@@ -118,7 +122,7 @@ export default {
           ]
         },
         {
-          icon: "el-icon-lx-copy",
+          icon: "el-icon-lx-zujian",
           index: '6',
           title: '组件',
           subs:[
@@ -131,7 +135,56 @@ export default {
               title: '头像上传'
             }
           ]
-        }
+        },
+        {
+          icon: "el-icon-lx-tubiao",
+          index: '7',
+          title: '图表',
+          subs:[
+            {
+              index: 'line',
+              title: '折线图'
+            },
+            {
+              index: 'cake',
+              title: '饼形图'
+            },
+            {
+              index: 'column',
+              title: '柱形图'
+            }
+          ]
+        },
+        {
+          icon: "el-icon-lx-pdf1",
+          index: 'pdf',
+          title: 'pdf',
+        },
+        {
+          icon: "el-icon-lx-icon-test",
+          index: '9',
+          title: '错误页面',
+          subs:[
+            {
+              index: '401',
+              title: '401'
+            },
+            {
+              index: '404',
+              title: '404'
+            }
+          ]
+        },
+        {
+          icon: "el-icon-lx-diqiu",
+          index: 'i18n',
+          title: '国际化',
+        },
+        {
+          icon: "el-icon-lx-wailian",
+          index: 'link',
+          title: '外链',
+        },
       ]
     };
   },
@@ -157,7 +210,7 @@ export default {
 </script>
 <style scoped>
 .sidebar {
-  width: 200px!important;
+  /* width: 200px!important; */
   height: 100%;
   position: fixed;
   top: 0;
@@ -169,14 +222,6 @@ export default {
   transition: width 0.3s ease-in-out;
   z-index: 1001;
 }
-/* .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0; 
-  display: block;
-  overflow-y: scroll;
-} */
 .sidebar::-webkit-scrollbar {
   width: 0;
 }

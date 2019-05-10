@@ -44,6 +44,7 @@ export default {
   },
   created() {
     console.log(this.$router)
+    this.getData();
     console.log(
       `%c 后台 %c Detected Vue %cv1.5`,
       "background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff",
@@ -52,7 +53,25 @@ export default {
     );
   },
   mounted() {},
-  methods: {}
+  methods: {
+    getData() {
+      this.$axios({
+        url: 'bjqualitymgt/quality/track/queryQualityInfo',
+        method: 'post',
+        headers: {
+          'Authorization': 'BINGJIANG eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiwxLDEsMS1bNCwgOCwgMV0iLCJleHAiOjE4MDM5NjY2MjJ9.xnkNY7RRj6wQnAXQYw6kH43MmogO1h8pPWkV3-9NVpNjYtzpMfxRLirYgwW96lJEnfXiglb_VuX1KDn-u5KwJw',
+          'currentProjectId': 45
+        },
+        data: {}
+      }).then((result) => {
+        if (result.data.code == 200) {
+          console.log(result.data)
+        }
+      }).catch((err) => {
+        console.log(err)
+      });
+    }
+  }
 };
 </script>
 <style scoped>

@@ -85,6 +85,46 @@ export default new Router({
           path: '/avatar-upload',
           component: () => import('@/views/components/avatar-upload'),
           meta: {title: '头像上传'}
+        },
+        {
+          path: '/line',
+          component: () => import('@/views/echarts/line'),
+          meta: {title: '折线图'}
+        },
+        {
+          path: '/cake',
+          component: () => import('@/views/echarts/cake'),
+          meta: {title: '饼形图'}
+        },
+        {
+          path: '/column',
+          component: () => import('@/views/echarts/column'),
+          meta: {title: '柱形图'}
+        },
+        {
+          path: '/pdf',
+          component: () => import('@/views/pdf/index'),
+          meta: {title: 'pdf'}
+        },
+        {
+          path: '/401',
+          component: () => import('@/views/errorPage/401'),
+          meta: {title: '401'}
+        },
+        {
+          path: '/404',
+          component: () => import('@/views/errorPage/404'),
+          meta: {title: '404'}
+        },
+        {
+          path: '/i18n',
+          component: () => import('@/views/i18n/index'),
+          meta: {title: '国际化'}
+        },
+        {
+          path: '/link',
+          component: () => import('@/views/link/index'),
+          meta: {title: '外链'}
         }
       ]
     },

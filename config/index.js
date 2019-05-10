@@ -43,14 +43,14 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     proxyTable: {
       '/api': {
-             target: 'https://api.douban.com/v2',
-             changeOrigin: true,
-             pathRewrite: {
-             '^/api': ''
-           }
+            target: 'https://api.douban.com/v2',
+            changeOrigin: true,
+            pathRewrite: {
+            '^/api': ''
+          }
        }
     },
     /**

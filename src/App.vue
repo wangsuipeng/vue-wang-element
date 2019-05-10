@@ -23,7 +23,7 @@ export default {
   src: url('./assets/fonts/AlibabaSans-Medium.otf');
   font-weight: normal;
 }
-#app {
+#app,body {
   font-family: alibaba;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

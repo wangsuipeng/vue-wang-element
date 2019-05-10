@@ -3,13 +3,15 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import '@/icons'
+// import '@/icons'
+import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-Vue.prototype.$axios = axios;
+import './assets/css/icon.css'
+Vue.prototype.$axios = axios
 // 给config配置baseURL
-axios.defaults.baseURL = 'https://test.shymkj.com/';
-// axios.defaults.baseURL = 'http://192.168.1.13:9902/'
+
+axios.defaults.baseURL = process.env.API_ROOT
 import i18n from './lang'
 
 Vue.use(ElementUI,{
