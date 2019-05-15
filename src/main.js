@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/icon.css'
+import './permission.js'
+import store from './store1'
 Vue.prototype.$axios = axios
 // 给config配置baseURL
 
@@ -104,5 +106,6 @@ new Vue({
   el: '#app',
   router,
   i18n,
+  store,
   render: h => h(App)
 })
