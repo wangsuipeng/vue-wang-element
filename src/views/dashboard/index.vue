@@ -9,7 +9,7 @@
       <el-table-column align="center" prop="date" label="日期" sortable width="180"></el-table-column>
       <el-table-column align="center" prop="name" label="姓名" sortable width="180"></el-table-column>
       <el-table-column align="center" prop="address" label="地址"></el-table-column>
-      <el-table-column align="center" prop="" label="地址">
+      <el-table-column align="center" prop label="地址">
         <div>{{increment}}</div>
       </el-table-column>
     </el-table>
@@ -58,12 +58,14 @@ export default {
       "background:#ff0000; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff"
     );
   },
+  beforeMount() {},
   mounted() {
     this.getData();
     setTimeout(() => {
       this.$store.dispatch("updateUserInfo", "22222");
     }, 2000);
   },
+  updated() {},
   computed: {
     increment() {
       return this.$store.getters.updateUserInfo;
@@ -87,18 +89,6 @@ export default {
         .then(result => {
           if (result.data.code == 200) {
             console.log(result.data);
-            function name(box) {
-              try {
-                if (!box) {
-                  name(this.$refs.box);
-                } else {
-                  console.log(this.$refs.box);
-                }
-              } catch (error) {
-                console.log(error)
-              }
-            }
-            name(this.$refs.box);
           }
         })
         .catch(err => {

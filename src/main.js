@@ -10,12 +10,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/icon.css'
 import './permission.js'
 import store from './store'
+import vuescroll from 'vuescroll'
 Vue.prototype.$axios = axios
 // 给config配置baseURL
 
 axios.defaults.baseURL = process.env.API_ROOT
 import i18n from './lang'
-
+Vue.use(vuescroll)
 Vue.use(ElementUI,{
   size: Cookies.get('size') || 'medium',
   i18n: (key, value) => i18n.t(key, value)
