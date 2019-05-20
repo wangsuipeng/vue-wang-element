@@ -9,7 +9,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/icon.css'
 import './permission.js'
-import store from './store1'
+import store from './store'
 Vue.prototype.$axios = axios
 // 给config配置baseURL
 
@@ -22,15 +22,15 @@ Vue.use(ElementUI,{
 })
 Vue.config.productionTip = false
 
-// router.beforeEach((to, from, next) => {
-//   const role = localStorage.getItem('ms_username');
-//   if (!role && to.path !== '/login') {
-//     next('/login');
-//     console.log("!!!!!!!!!!!!!!!!!!!")
-//   } else {
-//     next();
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  const role = localStorage.getItem('ms_username');
+  if (!role && to.path !== '/login') {
+    next('/login');
+    console.log("!!!!!!!!!!!!!!!!!!!")
+  } else {
+    next();
+  }
+})
 
 // //使用钩子函数对路由进行权限跳转
 // router.beforeEach((to, from, next) => {

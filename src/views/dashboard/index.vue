@@ -1,6 +1,5 @@
 <template>
   <div class="container" ref="container">
-    <div>{{headerTitle}}</div>
     <el-table
       :data="tableData"
       style="width: 100%"
@@ -10,6 +9,9 @@
       <el-table-column align="center" prop="date" label="日期" sortable width="180"></el-table-column>
       <el-table-column align="center" prop="name" label="姓名" sortable width="180"></el-table-column>
       <el-table-column align="center" prop="address" label="地址"></el-table-column>
+      <el-table-column align="center" prop="" label="地址">
+        <div>{{increment}}</div>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -49,7 +51,6 @@ export default {
   },
   created() {
     // console.log(this.$router)
-    // this.getData();
     console.log(
       `%c 后台 %c Detected Vue %cv1.5`,
       "background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff",
@@ -58,30 +59,19 @@ export default {
     );
   },
   mounted() {
-    // console.log(this.$refs.box)
-    // this.$refs.box.style.color = "red";
-    this.getDom();
     this.getData();
     setTimeout(() => {
-      this.$store.dispatch("setHeaderTitle", "22222");
+      this.$store.dispatch("updateUserInfo", "22222");
     }, 2000);
   },
   computed: {
-    headerTitle() {
-      return this.$store.getters.headerTitle;
+    increment() {
+      return this.$store.getters.updateUserInfo;
     }
   },
   methods: {
     getClick() {
       console.log(222);
-    },
-    getDom() {
-      console.log("88888888888888888888888888");
-      console.log(this.$refs.box);
-      // for (let i = 0; i < this.$refs.box.length; i++) {
-      //   this.$refs.box[i].style.color = "#fff";
-      //   this.$refs.box[i].style.backgroundColor = "red";
-      // }
     },
     getData() {
       this.$axios({
@@ -97,7 +87,6 @@ export default {
         .then(result => {
           if (result.data.code == 200) {
             console.log(result.data);
-
             function name(box) {
               try {
                 if (!box) {
@@ -106,10 +95,9 @@ export default {
                   console.log(this.$refs.box);
                 }
               } catch (error) {
-                // console.log(error)
+                console.log(error)
               }
             }
-
             name(this.$refs.box);
           }
         })
