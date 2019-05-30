@@ -13,6 +13,18 @@
         <div>{{increment}}</div>
       </el-table-column>
     </el-table>
+    <div style="margin-top: 30px"></div>
+    <el-table :data="tableData1" style="width: 100%" row-key="id" border lazy :load="load">
+      <el-table-column prop="date" label="日期" width="180"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
+      <el-table-column prop label="操作">
+        <template slot-scope="scope">
+          <el-button type="primary" icon="el-icon-edit" circle @click="clickEdit(scope.row)"></el-button>
+          <el-button type="success" icon="el-icon-check" circle></el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 <script>
@@ -46,6 +58,51 @@ export default {
           name: "王小虎",
           address: "上海市普陀区金沙江路 1516 弄"
         }
+      ],
+      tableData1: [
+        {
+          id: 1,
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+          hasChildren: true,
+          expanded: true
+        },
+        {
+          id: 2,
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄"
+          // hasChildren: true
+        },
+        {
+          id: 3,
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄",
+          hasChildren: true
+        },
+        {
+          id: 4,
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄"
+          // hasChildren: true
+        }
+      ],
+      arrr:[
+        {
+          id: 29,
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          id: 30,
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄"
+        }
       ]
     };
   },
@@ -72,6 +129,31 @@ export default {
     }
   },
   methods: {
+    clickEdit(row) {
+      console.log(row)
+    },
+    load(tree , treeNode , resolve) {
+      console.log(tree,'==================',treeNode)
+      // treeNode.expanded = true;
+      if (tree.id == 1) {
+        resolve(this.arrr);
+      } else if(tree.id == 3 ) {
+         resolve([
+        {
+          id: 31,
+          date: "2016-05-01",
+          name: "王小虎1111",
+          address: "上海市普陀区金沙江路 1519 弄"
+        },
+        {
+          id: 32,
+          date: "2016-05-01",
+          name: "王小虎22222",
+          address: "上海市普陀区金沙江路 1519 弄"
+        }
+      ]);
+      }
+    },
     getClick() {
       console.log(222);
     },
