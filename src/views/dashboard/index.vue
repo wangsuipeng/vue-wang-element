@@ -165,8 +165,6 @@ export default {
         url: "bjqualitymgt/quality/track/queryQualityInfo",
         method: "post",
         headers: {
-          Authorization:
-            "BINGJIANG eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiwxLDEsMS1bNCwgOCwgMV0iLCJleHAiOjE4MDM5NjY2MjJ9.xnkNY7RRj6wQnAXQYw6kH43MmogO1h8pPWkV3-9NVpNjYtzpMfxRLirYgwW96lJEnfXiglb_VuX1KDn-u5KwJw",
           currentProjectId: 45
         },
         data: {}
