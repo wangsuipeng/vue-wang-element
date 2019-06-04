@@ -3,14 +3,14 @@ const state = {
 }
 const mutations = {
     // 修改token，并将token存入localStorage 
-    CHANGE_LOGIN(state,user) {
-        state.Authorization = user;
-        localStorage.setItem('Authorization',user)
+    CHANGE_LOGIN(state,token) {
+        state.Authorization = token;
+        localStorage.setItem('Authorization',token)
     }
 }
 const actions = {
-    changeLogin({commit},user) {
-        commit('CHANGE_LOGIN',user)
+    changeLogin({commit},token) {
+        commit('CHANGE_LOGIN',token)
     }
 }
 export default {
