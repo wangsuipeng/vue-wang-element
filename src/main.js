@@ -10,8 +10,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/icon.css'
 import './permission.js'
 import store from './store'
+// import api from './request/api'
 import vuescroll from 'vuescroll'
 Vue.prototype.$axios = axios
+// Vue.prototype.$api = api; // 将api挂载到vue的原型上复制代码
 // 给config配置baseURL
 
 axios.defaults.baseURL = process.env.API_ROOT
@@ -23,15 +25,31 @@ Vue.use(ElementUI,{
 })
 Vue.config.productionTip = false
 
+// router.beforeEach((to, from, next) => {
+//   const role = localStorage.getItem('ms_username');
+//   if (!role && to.path !== '/login') {
+//     next('/login');
+//     console.log("!!!!!!!!!!!!!!!!!!!")
+//   } else {
+//     next();
+//   }
+// })
+// 导航守卫
+// 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
 router.beforeEach((to, from, next) => {
-  const role = localStorage.getItem('ms_username');
-  if (!role && to.path !== '/login') {
-    next('/login');
-    console.log("!!!!!!!!!!!!!!!!!!!")
-  } else {
+  console.log(to.path)
+  console.log(localStorage.getItem('Authorization'))
+  if (to.path === '/login') {
     next();
+  } else {
+    let token = localStorage.getItem('Authorization'); 
+    if (token === null || token === '') {
+      next('/login');
+    } else {
+      next();
+    }
   }
-})
+});
 
 // //使用钩子函数对路由进行权限跳转
 // router.beforeEach((to, from, next) => {

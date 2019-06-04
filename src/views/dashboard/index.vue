@@ -10,7 +10,7 @@
       <el-table-column align="center" prop="name" label="姓名" sortable width="180"></el-table-column>
       <el-table-column align="center" prop="address" label="地址"></el-table-column>
       <el-table-column align="center" prop label="地址">
-        <div>{{increment}}</div>
+        <div>{{Authorization}}</div>
       </el-table-column>
     </el-table>
     <div style="margin-top: 30px"></div>
@@ -126,6 +126,9 @@ export default {
   computed: {
     increment() {
       return this.$store.getters.updateUserInfo;
+    },
+    Authorization() {
+      return this.$store.getters.Authorization;
     }
   },
   methods: {
