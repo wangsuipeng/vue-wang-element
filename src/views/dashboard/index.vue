@@ -1,5 +1,6 @@
 <template>
   <div class="container" ref="container">
+    <el-button type="warning" style="margin-bottom: 10px;">警告按钮</el-button>
     <el-table
       :data="tableData"
       style="width: 100%"
