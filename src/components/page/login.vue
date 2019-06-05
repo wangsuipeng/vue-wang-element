@@ -88,7 +88,7 @@ export default {
         		    data: this.loginForm
         		}).then(result => {
 					if (result.data.code === 200) {
-						console.log(result.data.data[2])
+						console.log(result.data.data)
 						let userToken = result.data.data[2];
         		    	// 将用户token保存到vuex中
 						// this.changeLogin({ Authorization: userToken });
